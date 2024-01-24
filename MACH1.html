@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brott i Stockholms län</title>
+
+  <div style="background-color: #dde115; color: #721c24; padding: 10px; text-align: center;">
+    <p><strong>Observera:</strong> Materialet på denna sida är hämtat från <a href="https://polisen.se/" target="_blank" rel="noopener noreferrer">Polisen</a>.</p>
+  </div>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #ADD8E6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      padding: 10px;
+      background-color: #006ebf;
+    }
+
+    #logo {
+      max-width: 200px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #feed-container {
+      max-width: 600px;
+      margin: 20px auto;
+      flex: 3;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .feed-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px;
+    }
+
+    .next-page-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #00008B;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00008B;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      flex: 1;
+      background-color: #b3d9ff;
+    }
+
+    header::after,
+    #feed-container::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="color: whitesmoke;">Brott i Stockholms stad</h1>
+  <img id="logo" src="https://i.ibb.co/KLhcwnM/crime.png" alt="Logo">
+</header>
+
+<div id="feed-container"></div>
+
+<div class="next-page-button">
+  <button onclick="loadNextPage()">Mer...</button>
+</div>
+
+<script>
+  
+  const rssFeedUrl = 'https://polisen.se/aktuellt/rss/stockholms-lan/handelser-rss---stockholms-lan/';
+  let currentPage = 1;
+
+  
+  function fetchAndDisplayFeed(page) {
+    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssFeedUrl)}&page=${page}`)
+      .then(response => response.json())
+      .then(data => {
+        displayFeed(data.items);
+      })
+      .catch(error => {
+        console.error('Error fetching the RSS feed:', error);
+      });
+  }
+
+  
+  function displayFeed(items) {
+    const feedContainer = document.getElementById('feed-container');
+
+    items.forEach(item => {
+      const feedItem = document.createElement('div');
+      feedItem.classList.add('feed-item');
+
+      const title = document.createElement('h3');
+      title.textContent = item.title;
+
+      const link = document.createElement('a');
+      link.href = item.link;
+      link.textContent = 'Read more';
+
+      const description = document.createElement('p');
+      description.innerHTML = item.description;
+
+      feedItem.appendChild(title);
+      feedItem.appendChild(link);
+      feedItem.appendChild(description);
+
+      feedContainer.appendChild(feedItem);
+    });
+  }
+
+  
+  function loadNextPage() {
+    currentPage++;
+    fetchAndDisplayFeed(currentPage);
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', () => fetchAndDisplayFeed(currentPage));
+
+  
+</script>
+
+</body>
+</html>
