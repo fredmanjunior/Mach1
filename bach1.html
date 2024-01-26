@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brott i Stockholms län</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #ADD8E6;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            padding: 10px;
+            background-color: #006ebf;
+        }
+
+        #logo {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #rss-feed {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .feed-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1sAnYzFPeTWit9ilS1thFahvis9KGirI&callback=initMap" async defer></script>
+
+    <script>
+        var map; // Define map variable globally for access in multiple functions
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: { lat: 59.3293, lng: 18.0686 } // Stockholm coordinates
+            });
+
+            // List of valid locations
+            var validLocations = [
+                'Botkyrka', 'Danderyd', 'Ekerö', 'Haninge', 'Huddinge', 'Järfälla', 'Lidingö',
+                'Nacka', 'Norrtälje', 'Nykvarn', 'Nynäshamn', 'Salem', 'Sigtuna', 'Sollentuna',
+                'Solna', 'Stockholm', 'Stockholms län', 'Sundbyberg', 'Södertälje', 'Tyresö', 'Täby',
+                'Upplands-Bro', 'Upplands Väsby', 'Vallentuna', 'Vaxholm', 'Värmdö', 'Österåker'
+            ];
+
+            // Place markers on the map for each valid location
+            validLocations.forEach(location => {
+                var coordinates = getCoordinatesForLocation(location);
+                var marker = new google.maps.Marker({
+                    position: coordinates,
+                    map: map,
+                    title: location
+                });
+
+                // Attach an info window to the marker
+                var infoWindow = new google.maps.InfoWindow({
+                    content: '<div><strong>' + location + '</strong><br><a href="#" onclick="showRSSFeed(\'' + location + '\')">Show RSS Feed</a></div>'
+                });
+
+                marker.addListener('click', function () {
+                    infoWindow.open(map, marker);
+                    showRSSFeed(location); // Call the function to update the RSS feed
+                });
+            });
+        }
+
+        function showRSSFeed(location) {
+            var rssFeedContainer = document.getElementById('rss-feed');
+            rssFeedContainer.innerHTML = ''; // Clear previous content
+
+            // Fetch and display RSS feed for the selected location
+            fetch('https://polisen.se/aktuellt/rss/stockholms-lan/handelser-rss---stockholms-lan/')
+                .then(response => response.text())
+                .then(data => {
+                    var parser = new DOMParser();
+                    var xmlDoc = parser.parseFromString(data, 'text/xml');
+
+                    // Extract information from the XML
+                    var items = xmlDoc.querySelectorAll('item');
+                    var feedItems = [];
+
+                    items.forEach(item => {
+                        var title = item.querySelector('title').textContent;
+                        var description = item.querySelector('description').textContent;
+                        var link = item.querySelector('link').textContent;
+
+                        if (description.includes(location)) {
+                            // Store the feed item
+                            feedItems.push('<div class="feed-item"><strong>' + title + '</strong><br>' + description + '<br><a href="' + link + '" target="_blank">Link</a></div>');
+                        }
+                    });
+
+                    if (feedItems.length > 0) {
+                        // Display the collected feed items
+                        rssFeedContainer.innerHTML = feedItems.join('');
+                    } else {
+                        rssFeedContainer.innerHTML = '<p>No RSS feed items found for ' + location + '</p>';
+                    }
+                })
+                .catch(error => console.error('Error fetching RSS feed:', error));
+        }
+
+        function getCoordinatesForLocation(location) {
+            // Provide coordinates for each valid location
+            // This is a simplified example; replace with accurate coordinates
+            switch (location) {
+                case 'Botkyrka': return { lat: 59.1588, lng: 17.8409 };
+                case 'Danderyd': return { lat: 59.4057, lng: 18.0657 };
+                case 'Ekerö': return { lat: 59.3245, lng: 17.7340 };
+                case 'Haninge': return { lat: 59.1765, lng: 18.1367 };
+                case 'Huddinge': return { lat: 59.2363, lng: 17.9769 };
+                case 'Järfälla': return { lat: 59.4294, lng: 17.7800 };
+                case 'Lidingö': return { lat: 59.3729, lng: 18.1328 };
+                case 'Nacka': return { lat: 59.3108, lng: 18.1633 };
+                case 'Norrtälje': return { lat: 59.7575, lng: 18.7021 };
+                case 'Nykvarn': return { lat: 59.1414, lng: 17.5300 };
+                case 'Nynäshamn': return { lat: 58.9047, lng: 17.9476 };
+                case 'Salem': return { lat: 59.2312, lng: 17.7965 };
+                case 'Sigtuna': return { lat: 59.6176, lng: 17.7236 };
+                case 'Sollentuna': return { lat: 59.4297, lng: 17.9502 };
+                case 'Solna': return { lat: 59.3602, lng: 18.0046 };
+                case 'Stockholm': return { lat: 59.3293, lng: 18.0686 };
+                case 'Stockholms län': return { lat: 59.3293, lng: 18.0686 };
+                case 'Sundbyberg': return { lat: 59.3606, lng: 17.9716 };
+                case 'Södertälje': return { lat: 59.1955, lng: 17.6253 };
+                case 'Tyresö': return { lat: 59.2271, lng: 18.2767 };
+                case 'Täby': return { lat: 59.4341, lng: 18.0702 };
+                case 'Upplands-Bro': return { lat: 59.5229, lng: 17.5778 };
+                case 'Upplands Väsby': return { lat: 59.5243, lng: 17.9261 };
+                case 'Vallentuna': return { lat: 59.5343, lng: 18.0776 };
+                case 'Vaxholm': return { lat: 59.4000, lng: 18.3500 };
+                case 'Värmdö': return { lat: 59.3227, lng: 18.3933 };
+                case 'Österåker': return { lat: 59.4883, lng: 18.2969 };
+                default: return { lat: 59.3293, lng: 18.0686 }; // Default to Stockholm
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1 style="color: whitesmoke;">Brott i Stockholms stad</h1>
+        <img id="logo" src="https://i.ibb.co/2yDNHb7/1200px-Stockholm-vapen-bra-svg.png" alt="Logo">
+    </header>
+
+    <div id="map"></div>
+
+    <div id="rss-feed"></div>
+
+</body>
+</html>
