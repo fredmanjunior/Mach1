@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Site Search</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .item {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Search in List</h1>
+    <input type="text" id="searchInput" placeholder="Search...">
+
+    <div id="itemList">
+        <div class="item">Apple</div>
+        <div class="item">Banana</div>
+        <div class="item">Cherry</div>
+        <div class="item">Date</div>
+        <div class="item">Elderberry</div>
+        <div class="item">Fig</div>
+        <div class="item">Grape</div>
+    </div>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            // Get the search query and convert to lowercase
+            var query = this.value.toLowerCase();
+
+            // Get all the items in the list
+            var items = document.querySelectorAll('#itemList .item');
+
+            // Loop through each item and check if it matches the search query
+            items.forEach(function(item) {
+                // Get the text content of the item and convert to lowercase
+                var itemName = item.textContent.toLowerCase();
+
+                // If the item includes the query, display it; otherwise, hide it
+                if (itemName.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
