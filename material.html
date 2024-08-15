@@ -28,6 +28,31 @@
 </head>
 <body>
 
+     <!-- "Report a Problem" section -->
+    <h2>Report a Problem</h2>
+    <button onclick="document.getElementById('reportForm').style.display='block'">Report a Problem</button>
+
+    <div id="reportForm">
+        <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
+            <label for="userName">Your Name:</label><br>
+            <input type="text" id="userName" name="userName" required><br><br>
+
+            <label for="userEmail">Your Email:</label><br>
+            <input type="email" id="userEmail" name="userEmail" required><br><br>
+
+            <label for="problemDescription">Describe the Problem:</label><br>
+            <textarea id="problemDescription" name="problemDescription" rows="5" cols="40" required></textarea><br><br>
+
+            <input type="submit" value="Send Report">
+            <button type="button" onclick="document.getElementById('reportForm').style.display='none'">Cancel</button>
+        </form>
+    </div>
+    
+
+
+
+    
+
     <h1>Material Declarations</h1>
     <input type="text" id="searchInput" placeholder="CSN number...">
 
