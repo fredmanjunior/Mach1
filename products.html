@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Declarations</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .item {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: black;
+            background-color: #D3D3D3;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
 
+    <h1>Material Declarations</h1>
+    <input type="text" id="searchInput" placeholder="CSN number...">
+
+    <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            // Get the search query and convert to lowercase
+            var query = this.value.toLowerCase();
+
+            // Get all the items in the list
+            var items = document.querySelectorAll('#itemList .item');
+
+            // Loop through each item and check if it matches the search query
+            items.forEach(function(item) {
+                // Get the text content of the item and convert to lowercase
+                var itemName = item.textContent.toLowerCase();
+
+                // If the item includes the query, display it; otherwise, hide it
+                if (itemName.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <a href="https://fredmanjunior.github.io/problems.html" class="button">Report a Problem</a>
+    
+</body>
+</html>
