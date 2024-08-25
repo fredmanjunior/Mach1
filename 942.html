@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Table from CSV</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Imported Table from CSV</h1>
+<div id="table-container"></div>
+
+<!-- Include PapaParse library from CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<script>
+    function createTableFromCSV(csvData) {
+        const container = document.getElementById('table-container');
+        let table = '<table>';
+        
+        csvData.forEach((row, index) => {
+            table += '<tr>';
+            row.forEach(cell => {
+                if (index === 0) {
+                    table += `<th>${cell}</th>`;
+                } else {
+                    table += `<td>${cell}</td>`;
+                }
+            });
+            table += '</tr>';
+        });
+
+        table += '</table>';
+        container.innerHTML = table;
+    }
+
+    // Fetch the CSV file and parse it
+    Papa.parse('942 Summary.csv', {
+        download: true,
+        complete: function(results) {
+            createTableFromCSV(results.data);
+        }
+    });
+</script>
+
+</body>
+</html>
 
