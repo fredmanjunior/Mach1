@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>942</title>
+    <title>Import Table from CSV</title>
     <style>
         table {
             width: 100%;
@@ -29,7 +29,8 @@
             background-color: #f1f1f1;
         }
 
-        #table-container {
+        #table-container-summary,
+        #table-container-all {
             display: none;
             margin-top: 20px;
         }
@@ -38,25 +39,31 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            margin-right: 10px;
         }
-        
     </style>
 </head>
 <body>
 
 <h1>942</h1>
 
-<!-- Button to toggle the table visibility -->
-<button id="toggle-button">Summary</button>
+<!-- Button to toggle the summary table visibility -->
+<button id="toggle-button-summary">Summary</button>
 
-<!-- Container for the CSV-imported table -->
-<div id="table-container"></div>
+<!-- Button to toggle the full components table visibility -->
+<button id="toggle-button-all">Show All</button>
+
+<!-- Container for the CSV-imported summary table -->
+<div id="table-container-summary"></div>
+
+<!-- Container for the CSV-imported full components table -->
+<div id="table-container-all"></div>
 
 <!-- Include PapaParse library from CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 <script>
-    function createTableFromCSV(csvData) {
-        const container = document.getElementById('table-container');
+    function createTableFromCSV(csvData, containerId) {
+        const container = document.getElementById(containerId);
         let table = '<table>';
         
         csvData.forEach((row, index) => {
@@ -75,15 +82,15 @@
         container.innerHTML = table;
     }
 
-    // Function to toggle table visibility
-    function toggleTable() {
-        const tableContainer = document.getElementById('table-container');
+    // Function to toggle summary table visibility
+    function toggleSummaryTable() {
+        const tableContainer = document.getElementById('table-container-summary');
         if (tableContainer.style.display === 'none') {
             tableContainer.style.display = 'block';
             Papa.parse('942 Summary.csv', {
                 download: true,
                 complete: function(results) {
-                    createTableFromCSV(results.data);
+                    createTableFromCSV(results.data, 'table-container-summary');
                 }
             });
         } else {
@@ -91,35 +98,26 @@
         }
     }
 
-    // Add event listener to the button
-    document.getElementById('toggle-button').addEventListener('click', toggleTable);
-</script>
-
-    <h1>Components</h1>
-    <input type="text" id="searchInput" placeholder="CSN number...">
-
-    <script>
-        document.getElementById('searchInput').addEventListener('keyup', function() {
-            // Get the search query and convert to lowercase
-            var query = this.value.toLowerCase();
-
-            // Get all the items in the list
-            var items = document.querySelectorAll('#itemList .item');
-
-            // Loop through each item and check if it matches the search query
-            items.forEach(function(item) {
-                // Get the text content of the item and convert to lowercase
-                var itemName = item.textContent.toLowerCase();
-
-                // If the item includes the query, display it; otherwise, hide it
-                if (itemName.includes(query)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
+    // Function to toggle full components table visibility
+    function toggleAllTable() {
+        const tableContainer = document.getElementById('table-container-all');
+        if (tableContainer.style.display === 'none') {
+            tableContainer.style.display = 'block';
+            Papa.parse('942Components.csv', {
+                download: true,
+                complete: function(results) {
+                    createTableFromCSV(results.data, 'table-container-all');
                 }
             });
-        });
-    </script>
+        } else {
+            tableContainer.style.display = 'none';
+        }
+    }
+
+    // Add event listeners to the buttons
+    document.getElementById('toggle-button-summary').addEventListener('click', toggleSummaryTable);
+    document.getElementById('toggle-button-all').addEventListener('click', toggleAllTable);
+</script>
 
 </body>
 </html>
