@@ -28,11 +28,27 @@
         tr:hover {
             background-color: #f1f1f1;
         }
+
+        #table-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-<h1>Imported Table from CSV</h1>
+<h1>942 Summary</h1>
+
+<!-- Button to toggle the table visibility -->
+<button id="toggle-button">Summary</button>
+
+<!-- Container for the CSV-imported table -->
 <div id="table-container"></div>
 
 <!-- Include PapaParse library from CDN -->
@@ -58,15 +74,25 @@
         container.innerHTML = table;
     }
 
-    
-    Papa.parse('942 Summary.csv', {
-        download: true,
-        complete: function(results) {
-            createTableFromCSV(results.data);
+    // Function to toggle table visibility
+    function toggleTable() {
+        const tableContainer = document.getElementById('table-container');
+        if (tableContainer.style.display === 'none') {
+            tableContainer.style.display = 'block';
+            Papa.parse('942 Summary.csv', {
+                download: true,
+                complete: function(results) {
+                    createTableFromCSV(results.data);
+                }
+            });
+        } else {
+            tableContainer.style.display = 'none';
         }
-    });
+    }
+
+    // Add event listener to the button
+    document.getElementById('toggle-button').addEventListener('click', toggleTable);
 </script>
 
 </body>
 </html>
-
