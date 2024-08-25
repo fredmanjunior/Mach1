@@ -103,7 +103,7 @@
         const tableContainer = document.getElementById('table-container-all');
         if (tableContainer.style.display === 'none') {
             tableContainer.style.display = 'block';
-            Papa.parse('942Componentinfo2.csv', {
+            Papa.parse('942componentinfo2.csv', {
                 download: true,
                 complete: function(results) {
                     createTableFromCSV(results.data, 'table-container-all');
