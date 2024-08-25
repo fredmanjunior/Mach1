@@ -159,7 +159,8 @@ External plating
 Die 
 
 Bonding wire
-","Silica (amorphous)
+
+","Silica (amorphous)
 Epoxy resin
 Phenol resin
 Brominated epoxy resin
@@ -194,7 +195,8 @@ Gold (Au)
 7440-50-8 
 7440-21-3 
 7440-57-5 
-7440-57-5 ","
+7440-57-5 
+","
 5.5532
 0.9515
 0.7137
@@ -211,7 +213,8 @@ Gold (Au)
 0.0018
 0.1058
 0.0063
-0.027"
+0.027
+"
 DSM103,"
 Mold compound
 
@@ -234,7 +237,8 @@ silicon chip
 
 
 bond wire 
-","
+
+","
 Silcon Fused 
 Epoxy Resin 
 Phenol Novalac
@@ -255,7 +259,8 @@ Sn
 Si
 SiO2
 Au
-Au ","
+Au 
+","
 60676-86-0 
 29690-82-2
 9003-35-4
@@ -276,7 +281,8 @@ Au ","
 7440-21-3
 14808-60-7
 7440-57-5
-7440-57-5","
+7440-57-5
+","
 5.02
 0.68
 0.68
@@ -297,7 +303,8 @@ Au ","
 0.92
 0.0004
 0.008
-0.015"
+0.015
+"
 DSM104,"
 Die
 Lead Frame
@@ -312,7 +319,8 @@ Mold Compound-Black
 
 Plating
 Wire Bond - Cu
-","
+
+","
 Silicon (Si)
 Nickel (Ni)
 Iron (Fe)
@@ -326,7 +334,8 @@ Ortho-Cresol Novolac Resin
 Phenolic Resin (Novolac)
 Tin (Sn)
 Copper (Cu)
-","
+
+","
 7440-21-3
 7440-02-0
 7439-89-6
@@ -340,7 +349,8 @@ Copper (Cu)
 9003-35-4
 7440-31-5
 7440-50-8
-","
+
+","
 0.05
 1.05996
 1.46584
@@ -354,7 +364,8 @@ Copper (Cu)
 0.2205
 0.14
 0.01
-"
+
+"
 7300017,-,-,-,-
 7300106,"
 Doped silicon Silicon 
@@ -393,7 +404,8 @@ Iron (Fe)
 Lead (Pb)
 Tin (Sn)
 Copper (Cu)
-","
+
+","
 7440-21-3
 7440-50-8
 7439-89-6
@@ -411,7 +423,8 @@ Copper (Cu)
 7439-92-1
 7440-31-5
 7440-50-8
-","
+
+","
 0.04
 1.21651
 0.03264
@@ -429,7 +442,8 @@ Copper (Cu)
 0.00001
 0.13327
 0.00343
-"
+
+"
 DSM207,"
 Die
 Lead Frame
@@ -444,7 +458,8 @@ Mold Compound-Black
 
 Plating
 Wire Bond - Cu
-","
+
+","
 Silicon (Si)
 Nickel (Ni)
 Iron (Fe)
@@ -458,7 +473,8 @@ Ortho-Cresol Novolac Resin
 Phenolic Resin (Novolac)
 Tin (Sn)
 Copper (Cu)
-","
+
+","
 7440-21-3
 7440-02-0
 7439-89-6
@@ -472,7 +488,8 @@ Copper (Cu)
 9003-35-4
 7440-31-5
 7440-50-8
-","
+
+","
 0.05
 1.05996
 1.46584
@@ -485,10 +502,12 @@ Copper (Cu)
 0.392
 0.2205
 0.14
-0.01"
+0.01
+"
 DSM208,"
 Doped silicon
-Iron-nickel alloy","
+Iron-nickel alloy
+","
 Silicon (Si)
 Aluminium (Al)
 Carbon (C)
@@ -499,7 +518,8 @@ Manganese (Mn)
 Nickel (Ni)
 Phosphorus (P)
 Silicon (Si)
-Sulphur (S)","
+Sulphur (S)
+","
 7440-21-3
 7429-90-5
 7440-44-0
@@ -510,7 +530,8 @@ Sulphur (S)","
 7440-02-0
 7723-14-0
 7440-21-3
-7704-34-9","
+7704-34-9
+","
 0.04
 0.00229
 0.00102
@@ -540,7 +561,8 @@ Other duromers
 
 
 Other special metals
-","
+
+","
 Silicon (Si)
 Glass
 Nickel (Ni)
@@ -556,7 +578,8 @@ Phenolic resin
 Antimony trioxide
 Brominated epoxy resin
 Carbon Black
-Tin","
+Tin
+","
 7440-21-3
 
 7440-02-0
@@ -573,7 +596,8 @@ Tin","
 40039-93-8
 1333-86-4
 7440-31-5
-","
+
+","
 0.00433
 0.00004
 0.00002
@@ -589,7 +613,8 @@ Tin","
 0.00605
 0.00605
 0.00061
-0.0022"
+0.0022
+"
 ICSM561,"Chemical Composition Summary
 
 
@@ -832,7 +857,8 @@ Glass
 Lead( II) oxide
 baron oxide 
 Nickel 
-Tin","
+Tin
+","
 1344-28-1
 7631-86-9
 1309-48-4
@@ -864,7 +890,8 @@ Tin","
 1317-36-8
 1303-86-2
 7440-02-0
-7440-31-5","
+7440-31-5
+","
 25.6
 0.555
 0.264
@@ -896,7 +923,8 @@ Tin","
 0.114
 0.0223
 0.523
-0.435"
+0.435
+"
 7000167,"
  Substrate
 
@@ -930,7 +958,8 @@ Side electrode
 
 middle electrode 
 external electrode 
-","
+
+","
 Aluminum oxide
 Silicon dioxide
 Magnesium oxide
@@ -962,7 +991,8 @@ Glass
 Lead( II) oxide
 baron oxide 
 Nickel 
-Tin","
+Tin
+","
 1344-28-1
 7631-86-9
 1309-48-4
@@ -994,7 +1024,8 @@ Tin","
 1317-36-8
 1303-86-2
 7440-02-0
-7440-31-5","
+7440-31-5
+","
 25.6
 0.555
 0.264
@@ -1061,7 +1092,8 @@ Side electrode
 
 middle electrode 
 external electrode 
-","
+
+","
 Aluminum oxide
 Silicon dioxide
 Magnesium oxide
@@ -1093,7 +1125,8 @@ Glass
 Lead( II) oxide
 baron oxide 
 Nickel 
-Tin","
+Tin
+","
 1344-28-1
 7631-86-9
 1309-48-4
@@ -1125,7 +1158,8 @@ Tin","
 1317-36-8
 1303-86-2
 7440-02-0
-7440-31-5","
+7440-31-5
+","
 25.6
 0.555
 0.264
@@ -1157,7 +1191,8 @@ Tin","
 0.114
 0.0223
 0.523
-0.435"
+0.435
+"
 TRSM121,"
 Doped silicon
 
@@ -1185,7 +1220,8 @@ Impurity
 
 Tin solder
 Pure metal
-","
+
+","
 Silicon (Si)
 
 Aluminium (Al)
@@ -1211,7 +1247,8 @@ Bismuth (Bi)
 Iron (Fe)
 Lead (Pb)
 Tin (Sn)
-Copper (Cu)","
+Copper (Cu)
+","
 7440-21-3
 
 7429-90-5
@@ -1237,7 +1274,8 @@ Proprietary
 7439-89-6
 7439-92-1
 7440-31-5
-7440-50-8","
+7440-50-8
+","
 0.04
 0.00229
 0.00102
@@ -1263,7 +1301,8 @@ Proprietary
 0.00002
 0.00002
 0.18491
-0.0076"
+0.0076
+"
 73044,"
 Die
 Lead Frame
@@ -1277,7 +1316,8 @@ Mold Compound-Black
 Plating
 wire bond 
 
-","
+
+","
 Silicon (Si)
 Nickel (Ni)
 Iron (Fe)
@@ -1290,7 +1330,8 @@ Phenolic Resin (Novolac)
 Tin (Sn)
 palladium (Pd) 
 Copper (Cu)
-","
+
+","
 7440-21-3
 7440-02-0
 7439-89-6
@@ -1303,7 +1344,8 @@ Copper (Cu)
 7440-31-5
   7440 - 05 - 3
 7440-50-8
-","
+
+","
 0.05
 1.05996
 1.46584
@@ -1316,7 +1358,8 @@ Copper (Cu)
 0.14
 0.0001
 0.0099
-"
+
+"
 7300339,"
 Die
 Die Attach Solder
@@ -1333,7 +1376,8 @@ Mold Compound-Black
 
 Plating
 Wire Bond - Cu
-","
+
+","
 Silicon (Si)
 Silver (Ag)
 Lead (Pb)
@@ -1349,7 +1393,8 @@ Carbon Black (C)
 Fused Silica (SiO2)
 Tin (Sn)
 Copper (Cu)
-","
+
+","
 7440-21-3
 7440-22-4
 7439-92-1
@@ -1365,7 +1410,8 @@ proprietary data
 60676-86-0
 7440-31-5
 7440-50-8
-","
+
+","
 3.3
 0.05925
 2.26335
@@ -1381,7 +1427,8 @@ proprietary data
 47.4615
 7.44
 0.01
-"
+
+"
 7360005,"
 Copper and Its Alloys
 Precious Metals
@@ -1395,7 +1442,8 @@ Other Nonferrous Metals and Alloys
 Other Inorganic Materials
 Other Nonferrous Metals and Alloys
 Other Plastics and Rubber
-Ceramics / Glass","
+Ceramics / Glass
+","
 Copper
 Silver
 Epoxy
@@ -1408,7 +1456,8 @@ Tin
 Silica
 Metal Hydroxide
 Carbon Black
-Doped Silicon","
+Doped Silicon
+","
 7440-50-8
 7440-22-4
 85954-11-6
@@ -1421,7 +1470,8 @@ Doped Silicon","
 7631-86-9
 Trade Secret
 1333-86-4
-7440-21-3","
+7440-21-3
+","
 0.011942
 0.151911
 0.050637
@@ -1434,7 +1484,8 @@ Trade Secret
 9.686863
 0.327628
 0.032763
-0.684689"
+0.684689
+"
 7800015,"CTB (Terminal Blocks)
 CTBP (Terminal Blocks)
 CFB (Fuses) 
@@ -1557,7 +1608,8 @@ Lead
 
 
 
-","7439-92-1 
+
+","7439-92-1 
 7439-92-1 
 7439-92-1 
 7439-92-1 ",
